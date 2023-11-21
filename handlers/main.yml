@@ -1,0 +1,18 @@
+- name: reload ufw
+  community.general.ufw:
+    state: reloaded
+
+- name: restart apache2
+  ansible.builtin.systemd:
+    name: apache2
+    state: restarted
+
+- name: restart php-fpm
+  ansible.builtin.systemd:
+    name: php8.1-fpm
+    state: restarted
+
+- name: restart mariadb
+  ansible.builtin.systemd:
+    name: mariadb
+    state: restarted

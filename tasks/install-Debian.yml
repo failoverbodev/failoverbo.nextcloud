@@ -1,0 +1,32 @@
+- name: "O.S. - {{ ansible_distribution }} - Set hostname"
+  ansible.builtin.hostname:
+    name: "{{ nextcloud_fqdn.split('.')[0] }}"
+
+- name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Complete /etc/hosts"
+  ansible.builtin.lineinfile:
+    name: /etc/hosts
+    line: "127.0.1.1 {{ nextcloud_fqdn }} {{ nextcloud_fqdn.split('.')[0] }}"
+
+- name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Upgrade all packages for all new {{ ansible_distribution }} {{ ansible_distribution_major_version }}  ..."
+  ansible.builtin.apt:
+    update_cache: true
+    state: latest
+    upgrade: true
+
+- name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Install package dependency of S.O. and mariadb"
+  ansible.builtin.apt:
+    update_cache: true
+    state: latest
+    name:
+      - mariadb-server
+      - mariadb-client
+      - ufw
+      - vnstat
+      - python3-pymysql
+      - unzip
+      - zip
+      - wget
+      - fail2ban
+      - net-tools
+      - nfs-common
+

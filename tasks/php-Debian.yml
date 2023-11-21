@@ -1,0 +1,27 @@
+- name: PHP - uprade all packages first
+  ansible.builtin.apt:
+    update_cache: true
+    state: latest
+    upgrade: true
+
+- name: PHP - install php and modules php-fpm php-gd php-mysql ... imagemagick libmagickcore-6.q16-6-extra
+  ansible.builtin.apt:
+    update_cache: true
+    state: latest
+    name:
+      - php-fpm
+      - php-gd
+      - php-mysql
+      - php-curl
+      - php-xml
+      - php-zip
+      - php-intl
+      - php-mbstring
+      - php-bz2
+      - php-json
+      - php-apcu
+      - php-imagick
+      - php-gmp
+      - php-bcmath
+      - imagemagick
+      - libmagickcore-6.q16-6-extra
