@@ -36,7 +36,7 @@
       - mariadb-server
       - mariadb-client
 
-- name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Install package dependency of  mariadb"
+- name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Install package dependency repository"
   ansible.builtin.apt:
     update_cache: true
     state: latest
@@ -46,9 +46,11 @@
       - software-properties-common
 
 - name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Install repository php8.1 php8.2"
+  become: yes
   ansible.builtin.command: 
     cmd: sudo add-apt-repository ppa:ondrej/php
 
 - name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Apt update....... repository php8.1 php8.2"
+  become: yes
   ansible.builtin.command: 
     cmd: sudo apt update
