@@ -1,7 +1,7 @@
 ---
 
-# Include variables and define needed variables.
-- name: Include OS-specific variables for  family {{ ansible_os_family }} of distribution {{ ansible_distribution }} {{ ansible_distribution_major_version }}.
+# Include Basic dependencies for System Operation.
+- name: Include OS-specific package dependency for  family {{ ansible_os_family }} of distribution {{ ansible_distribution }} {{ ansible_distribution_major_version }}.
   include_tasks: "install-{{ ansible_os_family }}.yml"
 
 #Install/Configure Apache.
