@@ -28,6 +28,21 @@
       - net-tools
       - nfs-common
 
+- name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Download mariadb_repo_setup"
+  ansible.builtin.get_url:
+    url: "https://downloads.mariadb.com/MariaDB/mariadb_repo_setup"
+    dest: "/tmp/mariadb_repo_setup"
+
+- name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Config mariadb 10.6"
+  ansible.builtin.command: 
+    cmd: sudo chmod +x mariadb_repo_setup
+    chdir: /tmp 
+
+- name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Config mariadb 10.6"
+  ansible.builtin.command: 
+    cmd: sudo bash mariadb_repo_setup --mariadb-server-version=10.6
+    chdir: /tmp 
+
 - name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Install package dependency of  mariadb"
   ansible.builtin.apt:
     update_cache: true
