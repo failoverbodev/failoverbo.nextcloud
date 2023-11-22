@@ -74,3 +74,8 @@
     src: 000-default-Debian.conf
     dest: /etc/apache2/sites-enabled/000-default.conf
     mode: '0755'
+
+- name: APACHE - restart apache2
+  ansible.builtin.systemd:
+    name: apache2
+    state: restarted

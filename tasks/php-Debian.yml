@@ -25,3 +25,8 @@
       - php-bcmath
       - imagemagick
       - libmagickcore-6.q16-6-extra
+
+- name: PHP - restart php-fpm
+  ansible.builtin.systemd:
+    name: php8.1-fpm
+    state: restarted
