@@ -54,9 +54,6 @@ ansible_ssh_private_key_file= ./KEY-UBUNTU-JAMMY
     nextcloud_version: 26.0.3
     nextcloud_fqdn: localhost
 
-    ubuntu_nextcloud_user: nextcloudweb
-    ubuntu_nextcloud_user_ssh_key_location: https://github.com/markuman.keys
-
     mariadb_root_password: p0w3rchin4Main
 
     nextcloud_db_name: nextcloud
