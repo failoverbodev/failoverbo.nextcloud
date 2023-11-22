@@ -46,11 +46,9 @@
       - software-properties-common
 
 - name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Install repository php8.1 php8.2"
-  become: yes
   ansible.builtin.command: 
-    cmd: sudo add-apt-repository ppa:ondrej/php
+    cmd: sudo add-apt-repository ppa:ondrej/php -y
 
 - name: "O.S. {{ ansible_distribution }} {{ ansible_distribution_major_version }} - Apt update....... repository php8.1 php8.2"
-  become: yes
   ansible.builtin.command: 
-    cmd: sudo apt update
+    cmd: sudo apt update -y
