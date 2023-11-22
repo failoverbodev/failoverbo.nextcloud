@@ -46,6 +46,16 @@
     state=present
     name=proxy_wstunnel
 
+- name: APACHE - install Apache modules proxy_wstunnel
+  apache2_module:
+    state=present
+    name=proxy_fcgi
+
+- name: APACHE - install Apache modules proxy_wstunnel
+  apache2_module:
+    state=present
+    name=vhost_alias
+
 #- name: Enable the Apache2 module
 #  community.general.apache2_module:
 #    state: present
@@ -61,6 +71,6 @@
 
 - name: APACHE - copy 000-default.conf "/etc/apache2/sites-enabled"
   ansible.builtin.copy:
-    src: 000-default.conf
+    src: 000-default-Debian.conf
     dest: /etc/apache2/sites-enabled/000-default.conf
     mode: '0755'
