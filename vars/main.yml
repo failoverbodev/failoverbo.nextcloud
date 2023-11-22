@@ -165,7 +165,7 @@ php_configuration_items:
 
 _nextcloud_php_destination:
   default: /etc/php.d/40-apcu.ini
-  Debian: /etc/php/8.1/mods-available/apcu.ini
+  Debian: /etc/php/8.2/mods-available/apcu.ini
   RedHat: /etc/php.d/40-apcu.ini
 
 nextcloud_php_destination: "{{ _nextcloud_php_destination[ansible_os_family] | default(_nextcloud_php_destination['default']) }}"

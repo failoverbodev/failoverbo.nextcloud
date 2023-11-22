@@ -110,5 +110,5 @@
     - slow_query_log_file = /var/log/mysql/slow.log
     - long_query_time = 1
 
-- name: DATABASE - restart mariadb, because we need the event scheduler
-  ansible.builtin.meta: flush_handlers
+#- name: DATABASE - restart mariadb, because we need the event scheduler
+#  ansible.builtin.meta: flush_handlers

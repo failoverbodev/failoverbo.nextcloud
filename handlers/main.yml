@@ -5,7 +5,7 @@
 
 - name: restart php-fpm
   ansible.builtin.systemd:
-    name: php8.1-fpm
+    name: php8.2-fpm
     state: restarted
 
 - name: restart mariadb
